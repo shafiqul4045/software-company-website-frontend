@@ -35,9 +35,9 @@ anime.timeline({loop: true})
   }).add({
     targets: '.ml3',
     opacity: 0,
-    duration: 500,
+    duration: 300,
     easing: "easeOutExpo",
-    delay: 500
+    delay: 100
   });
 
     const cursor = document.querySelector('.cursor');

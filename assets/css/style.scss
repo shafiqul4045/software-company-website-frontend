@@ -7,6 +7,12 @@ $secondary-font: 'Saira', sans-serif;
 $primary-color: #3C3950;
 $secondary-color: #3C3950;
 
+.pt-150{
+    padding-top: 150px;
+}
+.pb-150{
+    padding-bottom: 150px;
+}
 // responsive==========================
 // xl-device=====
 @mixin xxl-down-device{
@@ -86,7 +92,7 @@ body{
 .cursor {
     width: 30px;
     height: 30px;
-    border: 1px dotted white;
+    border: 1px dashed white;
     border-radius: 50%;
     position: absolute;
     transition-duration: 200ms;
@@ -100,7 +106,7 @@ body{
     width: 5px;
     height: 5px;
     position: absolute;
-    border: 1px solid #fff;
+    border: 1px dashed #fff;
     border-radius: 50%;
     opacity: 1;
     top: 12px;
@@ -294,6 +300,9 @@ header{
         }
     }
 }
+.mobile-menu-wrapper{
+    position: relative;
+}
 .mobile-menu{
     position: fixed;
     left: -100%;
@@ -304,10 +313,12 @@ header{
     z-index: 999;
     padding: 30px 25px 30px 25px;
     transition: 0.5s ease-in;
+    overflow-y: auto;
 
     .mobile-menu-items{
         list-style: none;
         padding-left: 10px;
+        margin-bottom: 150px;
         a{
             text-decoration: none;
             color: #fff;
@@ -324,11 +335,14 @@ header{
         }
     }
     .social-connect{
-        padding-left: 10px;
+       margin-top: 95px;
         ul{
+            display: flex;
+            margin: 0px 0px 0px 10px;
+            padding: 0;
             li{
                 list-style: none;
-                
+                margin-right: 20px;
                 a{
                     text-decoration: none;
                     color: #fff;
@@ -634,6 +648,10 @@ header{
 .section-title-area-two{
     background: radial-gradient(50% 50% at 50% 50%, #C54BFE 0%, #9300ED 100%);
 }
+.service-content-area{
+    padding-bottom: 150px;
+    padding-top: 150px;
+}
 // Services Items CSS
 .service-item{
     border: 2px solid #EEEEEE;
@@ -738,6 +756,7 @@ header{
 // About Us CSS
 .about-content{
     padding-top: 150px;
+    padding-bottom: 150px;
 }
 .about-us-wrapper{
     h2{
@@ -760,19 +779,21 @@ header{
     .about-us-image {
        margin: 0px 35px;
        position: relative;
+       overflow: hidden;
+       border-radius: 50%;
+       z-index: 1;
        &::before{
         content: '';
         position: absolute;
-        left: 0px;
+        left: 15px;
         top: 0px;
         right: 0;
         bottom: 0px;
         width: 100%;
         height: 100%;
-        border-radius: 100%;
         background-color: #2a2b2f;
         opacity: 0.6;
-        z-index:1;
+        z-index: 1;
     }
        img{
            margin: 0px auto;
@@ -798,18 +819,44 @@ header{
             margin: 15px 10px;
             color: #9A9A9A;
             width: 50%;
+            transition: 0.4s ease;
+            &:hover{
+                .about-us-state-item-icon i {
+                    color: #FFFFFF;
+                    cursor: pointer;
+                } 
+                .about-us-state-item-content{
+                    h4{
+                       a{
+                        color: #FFFFFF;
+                        cursor: pointer;
+                       }
+                    }
+                    p{
+                        color: #FFFFFF;
+                        cursor: pointer;
+                    }
+                }
+            }
             .about-us-state-item-icon i {
                 font-size: 46px;
                 margin-right: 15px;
+                transition: 0.4s ease;
             }
             .about-us-state-item-content{
                 h4{
+                   a{
                     font-size: 30px;
                     font-weight: 700;
                     margin-bottom: 0;
+                    text-decoration: none;
+                    color: #9A9A9A;
+                    transition: 0.4s ease;
+                   }
                 }
                 p{
                     margin: 0;
+                    transition: 0.4s ease;
                 }
             }
         }
@@ -861,12 +908,17 @@ header{
     }
   }
 // Work Process CSS
+.work-content-area{
+    padding-top: 150px;
+    padding-bottom: 150px;
+
+}
 .work-process-section{
     h3.work-process-title{
         text-align: center;
         font-size: 50px;
         font-weight: 700;
-        margin: 20px 0;
+        margin-bottom: 20px;
     }
 }
 .work-process-item1{
@@ -878,6 +930,13 @@ header{
    @include xl-down-device(){
        left: 44%;
    }
+   @include lg-down-device(){
+       left: 41%;
+   }
+   @include sm-down-device(){
+       left: 29%;
+   }
+
 //    @include md-device(){
 //     left: 67.1%;
 //     }
@@ -960,8 +1019,10 @@ header{
     &.d-flex{
         gap: 25px;
         justify-content: center;
-        margin: 30px 0;
         padding-top: 300px;
+        @include lg-down-device(){
+            padding-top: 160px;
+        }
     }
     .work-process-item{
         border: 2px dashed #2A2B2F;
@@ -1153,10 +1214,6 @@ header{
         margin-right: 20px;
         margin-bottom: 20px;
         transition: 0.4s;
-        &:hover{
-            box-shadow: 5px 3px 40px rgba(0, 72, 88, 0.1);
-             transform: translateY(-5px);
-        }
     }
 
 }
@@ -1357,6 +1414,10 @@ header{
                 line-height: 22px;
                 color: #FFFFFF;
                 text-decoration: none;
+                transition: 0.4s;
+                &:hover{
+                    color: #FFA100;
+                }
             }
 
         }
@@ -1373,6 +1434,7 @@ header{
                     color: #FFFFFF;
                     font-size: 20px;
                     padding-left: 0px;
+                    transition: 0.4s;
                     &:hover{
                         color:  #3b5998;
                         background-color: #fff;
@@ -1389,6 +1451,8 @@ header{
                     color: #FFFFFF;
                     font-size: 20px;
                     padding-left: 0px;
+                    transition: 0.4s;
+
                     &:hover{
                         color: #00acee;
                         background-color: #fff;
@@ -1405,6 +1469,8 @@ header{
                     color: #FFFFFF;
                     font-size: 20px;
                     padding-left: 0px;
+                    transition: 0.4s;
+
                     &:hover{
                         color: #8a3ab9;
                         background-color: #fff;
@@ -1421,6 +1487,8 @@ header{
                     color: #FFFFFF;
                     font-size: 20px;
                     padding-left: 0px;
+                    transition: 0.4s;
+
                     &:hover{
                         color:  #c8232c ;
                         background-color: #fff;
@@ -1442,6 +1510,10 @@ header{
                 line-height: 22px;
                 color: #FFFFFF;
                 text-decoration: none;
+                transition: 0.4s;
+                &:hover{
+                    color: #FFA100;
+                }
             }
         }
     

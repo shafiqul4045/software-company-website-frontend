@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Saira:wght@100;200;300;400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700;800;900&display=swap");
+.pt-150 {
+  padding-top: 150px;
+}
+
+.pb-150 {
+  padding-bottom: 150px;
+}
+
 html, body {
   height: 100%;
 }
@@ -13,7 +21,7 @@ body {
 .cursor {
   width: 30px;
   height: 30px;
-  border: 1px dotted white;
+  border: 1px dashed white;
   border-radius: 50%;
   position: absolute;
   -webkit-transition-duration: 200ms;
@@ -29,7 +37,7 @@ body {
   width: 5px;
   height: 5px;
   position: absolute;
-  border: 1px solid #fff;
+  border: 1px dashed #fff;
   border-radius: 50%;
   opacity: 1;
   top: 12px;
@@ -305,6 +313,10 @@ header .header-area .collapse-menu span:hover {
   color: #FFA100;
 }
 
+.mobile-menu-wrapper {
+  position: relative;
+}
+
 .mobile-menu {
   position: fixed;
   left: -100%;
@@ -316,11 +328,13 @@ header .header-area .collapse-menu span:hover {
   padding: 30px 25px 30px 25px;
   -webkit-transition: 0.5s ease-in;
   transition: 0.5s ease-in;
+  overflow-y: auto;
 }
 
 .mobile-menu .mobile-menu-items {
   list-style: none;
   padding-left: 10px;
+  margin-bottom: 150px;
 }
 
 .mobile-menu .mobile-menu-items a {
@@ -341,11 +355,20 @@ header .header-area .collapse-menu span:hover {
 }
 
 .mobile-menu .social-connect {
-  padding-left: 10px;
+  margin-top: 95px;
+}
+
+.mobile-menu .social-connect ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0px 0px 0px 10px;
+  padding: 0;
 }
 
 .mobile-menu .social-connect ul li {
   list-style: none;
+  margin-right: 20px;
 }
 
 .mobile-menu .social-connect ul li a {
@@ -722,6 +745,11 @@ header .header-area .collapse-menu span:hover {
   background: radial-gradient(50% 50% at 50% 50%, #C54BFE 0%, #9300ED 100%);
 }
 
+.service-content-area {
+  padding-bottom: 150px;
+  padding-top: 150px;
+}
+
 .service-item {
   border: 2px solid #EEEEEE;
   padding: 20px;
@@ -849,6 +877,7 @@ header .header-area .collapse-menu span:hover {
 
 .about-content {
   padding-top: 150px;
+  padding-bottom: 150px;
 }
 
 .about-us-wrapper h2 {
@@ -876,18 +905,20 @@ header .header-area .collapse-menu span:hover {
 .about-us-wrapper .about-us-image {
   margin: 0px 35px;
   position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  z-index: 1;
 }
 
 .about-us-wrapper .about-us-image::before {
   content: '';
   position: absolute;
-  left: 0px;
+  left: 15px;
   top: 0px;
   right: 0;
   bottom: 0px;
   width: 100%;
   height: 100%;
-  border-radius: 100%;
   background-color: #2a2b2f;
   opacity: 0.6;
   z-index: 1;
@@ -923,21 +954,46 @@ header .header-area .collapse-menu span:hover {
   margin: 15px 10px;
   color: #9A9A9A;
   width: 50%;
+  -webkit-transition: 0.4s ease;
+  transition: 0.4s ease;
+}
+
+.about-us-wrapper .about-us-state .about-us-state-item:hover .about-us-state-item-icon i {
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.about-us-wrapper .about-us-state .about-us-state-item:hover .about-us-state-item-content h4 a {
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.about-us-wrapper .about-us-state .about-us-state-item:hover .about-us-state-item-content p {
+  color: #FFFFFF;
+  cursor: pointer;
 }
 
 .about-us-wrapper .about-us-state .about-us-state-item .about-us-state-item-icon i {
   font-size: 46px;
   margin-right: 15px;
+  -webkit-transition: 0.4s ease;
+  transition: 0.4s ease;
 }
 
-.about-us-wrapper .about-us-state .about-us-state-item .about-us-state-item-content h4 {
+.about-us-wrapper .about-us-state .about-us-state-item .about-us-state-item-content h4 a {
   font-size: 30px;
   font-weight: 700;
   margin-bottom: 0;
+  text-decoration: none;
+  color: #9A9A9A;
+  -webkit-transition: 0.4s ease;
+  transition: 0.4s ease;
 }
 
 .about-us-wrapper .about-us-state .about-us-state-item .about-us-state-item-content p {
   margin: 0;
+  -webkit-transition: 0.4s ease;
+  transition: 0.4s ease;
 }
 
 .video-pluse {
@@ -1006,11 +1062,16 @@ header .header-area .collapse-menu span:hover {
   color: #00152B;
 }
 
+.work-content-area {
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
+
 .work-process-section h3.work-process-title {
   text-align: center;
   font-size: 50px;
   font-weight: 700;
-  margin: 20px 0;
+  margin-bottom: 20px;
 }
 
 .work-process-item1 {
@@ -1027,6 +1088,18 @@ header .header-area .collapse-menu span:hover {
 @media (max-width: 1199px) {
   .work-process-item1 {
     left: 44%;
+  }
+}
+
+@media (max-width: 991px) {
+  .work-process-item1 {
+    left: 41%;
+  }
+}
+
+@media (max-width: 576px) {
+  .work-process-item1 {
+    left: 29%;
   }
 }
 
@@ -1127,8 +1200,13 @@ header .header-area .collapse-menu span:hover {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 30px 0;
   padding-top: 300px;
+}
+
+@media (max-width: 991px) {
+  .work-process-wrapper.d-flex {
+    padding-top: 160px;
+  }
 }
 
 .work-process-wrapper .work-process-item {
@@ -1375,13 +1453,6 @@ header .header-area .collapse-menu span:hover {
   margin-bottom: 20px;
   -webkit-transition: 0.4s;
   transition: 0.4s;
-}
-
-.clients-logo img:hover {
-  -webkit-box-shadow: 5px 3px 40px rgba(0, 72, 88, 0.1);
-          box-shadow: 5px 3px 40px rgba(0, 72, 88, 0.1);
-  -webkit-transform: translateY(-5px);
-          transform: translateY(-5px);
 }
 
 .blog-left-wrapper .blog-left-items {
@@ -1675,6 +1746,12 @@ header .header-area .collapse-menu span:hover {
   line-height: 22px;
   color: #FFFFFF;
   text-decoration: none;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.footer .copyright a:hover {
+  color: #FFA100;
 }
 
 .footer .footer-icon a {
@@ -1690,6 +1767,8 @@ header .header-area .collapse-menu span:hover {
   color: #FFFFFF;
   font-size: 20px;
   padding-left: 0px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .footer .footer-icon a .bxl-facebook:hover {
@@ -1706,6 +1785,8 @@ header .header-area .collapse-menu span:hover {
   color: #FFFFFF;
   font-size: 20px;
   padding-left: 0px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .footer .footer-icon a .bxl-twitter:hover {
@@ -1722,6 +1803,8 @@ header .header-area .collapse-menu span:hover {
   color: #FFFFFF;
   font-size: 20px;
   padding-left: 0px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .footer .footer-icon a .bxl-instagram:hover {
@@ -1738,6 +1821,8 @@ header .header-area .collapse-menu span:hover {
   color: #FFFFFF;
   font-size: 20px;
   padding-left: 0px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .footer .footer-icon a .bxl-pinterest-alt:hover {
@@ -1759,5 +1844,11 @@ header .header-area .collapse-menu span:hover {
   line-height: 22px;
   color: #FFFFFF;
   text-decoration: none;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.footer .back-batn a:hover {
+  color: #FFA100;
 }
 /*# sourceMappingURL=style.css.map */
