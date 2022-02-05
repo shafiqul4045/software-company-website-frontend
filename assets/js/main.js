@@ -9,39 +9,36 @@
 (function($) { 
     
     "use strict";
-//     // Wrap every letter in a span
-// var textWrapper = document.querySelector('.ml11 .letters');
-// textWrapper.innerHTML = textWrapper.textContent.replace(/([^\x00-\x50]|\w)/g, "<span class='letter'>$&</span>");
 
-// anime.timeline({loop: true})
-//   .add({
-//     targets: '.ml11 .line',
-//     scaleY: [0,1],
-//     opacity: [0.5,1],
-//     easing: "easeOutExpo",
-//     duration: 700
-//   })
-//   .add({
-//     targets: '.ml11 .line',
-//     translateX: [0, document.querySelector('.ml11 .letters').getBoundingClientRect().width + 10],
-//     easing: "easeOutExpo",
-//     duration: 700,
-//     delay: 100
-//   }).add({
-//     targets: '.ml11 .letter',
-//     opacity: [0,1],
-//     easing: "easeOutExpo",
-//     duration: 600,
-//     offset: '-=775',
-//     delay: (el, i) => 34 * (i+1)
-//   }).add({
-//     targets: '.ml11',
-//     opacity: 0,
-//     duration: 1000,
-//     easing: "easeOutExpo",
-//     delay: 1000
-//   });
 
+    $('.collapse-menu').on("click", function(){
+        // $(this).toggleClass('nav-open');
+        $('.mobile-menu').addClass('active');
+    })
+    $('.mobile-menu-close').on("click", function(){
+      $('.mobile-menu').removeClass('active');
+    })
+
+
+
+// Wrap every letter in a span
+var textWrapper = document.querySelector('.ml3');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml3 .letter',
+    opacity: [0,1],
+    easing: "easeInOutQuad",
+    duration: 2250,
+    delay: (el, i) => 150 * (i+1)
+  }).add({
+    targets: '.ml3',
+    opacity: 0,
+    duration: 500,
+    easing: "easeOutExpo",
+    delay: 500
+  });
 
     const cursor = document.querySelector('.cursor');
 
@@ -56,25 +53,29 @@
             cursor.classList.remove("expand");
         }, 500)
     })
+    
    
-    var categoryWrap = document.querySelectorAll('.collapse-menu-slide');
-    var categoryToggleIcon = document.querySelectorAll('.collapse-menu span');
-    categoryToggleIcon.forEach((element)=>{
-        element.addEventListener('click', ()=>{
-        categoryWrap.forEach((e)=>{
-            e.classList.toggle('collapse-menu-active')
-        })
-        })
-    })
-    var categoryWrap = document.querySelectorAll('.collapse-menu-slide');
-    var categoryToggleIcon = document.querySelectorAll('.collapse-menu');
-    categoryToggleIcon.forEach((element)=>{
-        element.addEventListener('click', ()=>{
-        categoryWrap.forEach((e)=>{
-            e.classList.toggle('collapse-menu-unactive')
-        })
-        })
-    })
+    // var categoryWrap = document.querySelectorAll('.collapse-menu-slide');
+    // var categoryToggleIcon = document.querySelectorAll('.collapse-menu span');
+    // var collapseMenu = document.querySelector('.collapse-menu');
+
+    // categoryToggleIcon.forEach((element)=>{
+    //     element.addEventListener('click', ()=>{
+    //     categoryWrap.forEach((e)=>{
+    //         e.classList.toggle('collapse-menu-active')
+    //     })
+    //     })
+    // })
+    
+    // var categoryWrap = document.querySelectorAll('.collapse-menu-slide');
+    // var categoryToggleIcon = document.querySelectorAll('.collapse-menu');
+    // categoryToggleIcon.forEach((element)=>{
+    //     element.addEventListener('click', ()=>{
+    //     categoryWrap.forEach((e)=>{
+    //         e.classList.toggle('collapse-menu-unactive')
+    //     })
+    //     })
+    // })
 
     // Client Testimonial Slider
 
