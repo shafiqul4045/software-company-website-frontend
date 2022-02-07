@@ -150,7 +150,7 @@ body{
 }
 
 .hover-style{
-    border: 1px solid transparent;
+    border: 2px solid transparent;
     font-size: 20px;
     font-weight: 500;
     position: relative;
@@ -160,7 +160,7 @@ body{
         left: 0;
         top: 0;
         width: 0%;
-        height: 1px;
+        height: 2px;
         background: #9300ED ;
         transition: 0.3s;
         transition-delay: 0.9s;
@@ -171,7 +171,7 @@ body{
         right: 0;
         bottom: 0;
         width: 0%;
-        height: 1px;
+        height: 2px;
         background: #F37700;
         transition: 0.3s;
         transition-delay: 0.3s;
@@ -184,7 +184,7 @@ body{
             right: 0;
             top: 0;
             height: 0%;
-            width: 1px;
+            width: 2px;
             background: #F46353;
             transition: 0.3s;
             transition-delay: 0.6s;
@@ -195,7 +195,7 @@ body{
             left: 0;
             bottom: 0;
             height: 0%;
-            width: 1px;
+            width: 2px;
             background: #43A2AF;
             transition: 0.3s;
             transition-delay: 0s;
@@ -492,7 +492,7 @@ header{
     display: flex;
     min-height: 600px;
     align-items: center;
-    padding: 130px 40px;
+    padding: 150px 40px;
     position: relative;
     height: 100%;
     z-index: 1;
@@ -500,6 +500,11 @@ header{
         min-height: unset;
         padding: 100px 15px;
     }
+    @include lg-down-device(){
+        min-height: unset;
+        padding: 50px 15px;
+    }
+    
     .frame-top{
         position: absolute;
         left: 0;
@@ -649,8 +654,10 @@ header{
     background: radial-gradient(50% 50% at 50% 50%, #C54BFE 0%, #9300ED 100%);
 }
 .service-content-area{
-    padding-bottom: 150px;
-    padding-top: 150px;
+    padding: 150px 20px 150px 27px;
+    @include lg-down-device(){
+        padding: 50px 20px 50px 27px;
+    }
 }
 // Services Items CSS
 .service-item{
@@ -658,6 +665,10 @@ header{
     padding: 20px;
     border-radius: 5px;
     transition: 0.4s;
+    &:hover{
+        border: 2px solid transparent;
+    }
+    
     @include sm-down-device(){
         text-align: center;
     }
@@ -757,6 +768,14 @@ header{
 .about-content{
     padding-top: 150px;
     padding-bottom: 150px;
+    @include xl-down-device(){
+        padding-top: 100px;
+        padding-bottom: 100px
+    }
+    @include lg-down-device(){
+        padding-top: 50px;
+        padding-bottom: 50px
+    }
 }
 .about-us-wrapper{
     h2{
@@ -772,9 +791,19 @@ header{
             font-size: 30px;
             line-height: 40px;
         }
+        @include md-down-device(){
+            font-size: 30px;
+            line-height: 40px;
+            padding-left: 5px;
+
+        }
+
     }
     img{
         padding: 0px 0px 0px 20px;
+        @include md-down-device(){
+            padding: 0px 0px 0px 5px;
+        }
     }
     .about-us-image {
        margin: 0px 35px;
@@ -810,6 +839,10 @@ header{
         @include xl-down-device(){
             font-size: 18px;
             padding: 10px 20px;
+        }
+        @include md-down-device(){
+            font-size: 16px;
+            padding: 10px 5px;
         }
     }
     .about-us-state{
@@ -911,6 +944,15 @@ header{
 .work-content-area{
     padding-top: 150px;
     padding-bottom: 150px;
+    @include lg-down-device(){
+        padding-top: 100px;
+        padding-bottom: 100px; 
+    }
+    @include md-down-device(){
+        padding-top: 50px;
+        padding-bottom: 50px; 
+    }
+    
 
 }
 .work-process-section{
@@ -919,6 +961,9 @@ header{
         font-size: 50px;
         font-weight: 700;
         margin-bottom: 20px;
+        @include md-down-device(){
+            font-size: 40px;
+        }
     }
 }
 .work-process-item1{
@@ -932,6 +977,9 @@ header{
    }
    @include lg-down-device(){
        left: 41%;
+       display: none;
+       visibility: hidden;
+       
    }
    @include sm-down-device(){
        left: 29%;
@@ -995,12 +1043,67 @@ header{
     }
     }
 }
-
+.work-process-item2{
+    border: 2px dashed #2A2B2F;
+    padding: 15px;
+    border-radius: 90%;
+    width: 140px;
+    height: 140px;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    @include lg-down-device(){
+        &::before{
+            border-right: unset;
+        }
+    }
+    &::before{
+        content: "";
+        position: absolute;
+        bottom: -85px;
+        left: 0;
+        right: 0;
+        height: 80px;
+        width: 0;
+        border-right: 2px dashed #2A2B2F;
+        text-align: center;
+        margin: 0px auto;
+    }
+    @include lg-down-device(){
+        &::before{
+            display: none;
+        }
+    }
+    span{
+        background: #fff;
+        box-shadow: 2px 3px 20px rgba(0, 0, 0, 0.1);
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: -12px;
+        padding: 8px;
+        border-radius: 90%;
+        width: 40px;
+        height: 40px;
+        font-weight: 700;
+        text-align: center;
+    }
+    h4{
+        font-size: 20px;
+        font-weight: 600;
+    }
+    svg{
+        margin: 0px auto;
+    }
+}
 
 .work-process-wrapper{
     position: relative;
     @include lg-down-device(){
         flex-wrap: wrap;
+        display: none !important;
+        visibility: hidden;
     }
     &::before{
         content: "";
@@ -1074,11 +1177,21 @@ header{
         }
     }
 }
-
+.responsive-work-process-item{
+    display: none;
+    visibility: hidden;
+    @include lg-down-device(){
+        visibility: visible;
+        display: block;
+    }
+}
 // Client Testimonial CSS
 .client-testimonial-wrapper{
     position: relative;
     padding: 40px;
+    @include lg-down-device(){
+        padding: 10px;
+    }
     .ct-swiper-button {
         display: flex;
         position: absolute;
@@ -1116,15 +1229,19 @@ header{
             padding: 10px 0px 10px 0px;
 
         }
-        @include sm-down-device(){
-            justify-content: center;
-        }
         .author-meta-img{
             position: relative;
             margin-right: 20px;
+            img{
+                @include  md-down-device(){
+                    width: 70px;
+                    margin-left: 3px;
+                }
+            }
             @include sm-down-device(){
                 margin-bottom: 20px;
             }
+           
             &::after{
                 content: '';
                 position: absolute;
@@ -1135,11 +1252,28 @@ header{
                 height: 100px;
                 width: 100px;
             }
+            @include  md-down-device(){
+                &::after{
+                    content: '';
+                    position: absolute;
+                    left: 1px;
+                    top: -8px;
+                    border: 3px solid #fff;
+                    border-radius: 100%;
+                    height: 80px;
+                    width: 80px;
+                }
+            }
         }
         .author-meta-content{
             margin-top: 7px;
-            @include sm-down-device(){
-                text-align: center;
+            @include md-down-device(){
+                h3{
+                    font-size: 20px;
+                }
+                h5{
+                    font-size: 16px;
+                }
             }
         }
     }
@@ -1149,6 +1283,9 @@ header{
     border: 1px solid #EEEEEE;
     box-sizing: border-box;
     transition: 0.6s;
+    &:hover{
+        border: 1px solid transparent;
+    }
     img{
         width: 100%;
         margin-bottom: 25px;
@@ -1207,7 +1344,13 @@ header{
     }
 }
 .product-content-area{
-    padding: 157px 0px;
+    padding: 157px 15px;
+    @include lg-down-device(){
+        padding: 100px 15px;
+    }
+    @include md-down-device(){
+        padding: 50px 15px;
+    }
 }
 .clients-logo{
     img{
@@ -1349,7 +1492,7 @@ header{
             max-width: 450px;
             width: 100%;
             @include xl-device(){
-                padding: 5px 10px;
+                padding: 5px 15px;
                 width: unset;
                 &::placeholder{
                     font-size: 12px;
@@ -1358,7 +1501,6 @@ header{
             }
             @include sm-down-device(){
                 padding: 5px 10px;
-                width: unset;
                 &::placeholder{
                     font-size: 12px;
                     line-height: 18px;
@@ -1379,12 +1521,12 @@ header{
             margin-left: -35px;
             font-family: $primary-font;
             font-weight: bold;
-            font-size: 20px;
+            font-size: 16px;
             line-height: 35px;
             text-transform: uppercase;
             color: #5F727F;
             @include xl-device(){
-                padding: 6px 1px;
+                padding: 6px 14px;
 
             }
             @include sm-down-device(){
