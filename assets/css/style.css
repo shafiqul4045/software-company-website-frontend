@@ -8,6 +8,26 @@
   padding-bottom: 150px;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #43A2AF;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #000;
+}
+
 html, body {
   height: 100%;
 }
@@ -128,8 +148,6 @@ body {
 
 .hover-style {
   border: 2px solid transparent;
-  font-size: 20px;
-  font-weight: 500;
   position: relative;
 }
 
@@ -409,7 +427,6 @@ header .header-area .collapse-menu span:hover {
       align-items: center;
   -webkit-box-align: center;
   width: 100%;
-  height: 100%;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(100%, rgba(45, 55, 60, 0.8)), to(rgba(45, 55, 60, 0.8))), url(../images/hero-image-1.png);
   background: linear-gradient(rgba(45, 55, 60, 0.8) 100%, rgba(45, 55, 60, 0.8) 100%), url(../images/hero-image-1.png);
 }
@@ -431,7 +448,7 @@ header .header-area .collapse-menu span:hover {
 
 .hero-area .hero-area-content {
   text-align: center;
-  padding: 120px 20px;
+  padding: 165px 20px;
 }
 
 @media (max-width: 767px) {
@@ -498,15 +515,15 @@ header .header-area .collapse-menu span:hover {
 .hero-area .social-connect {
   position: absolute;
   left: 0;
-  top: 20%;
-  -webkit-transform: translateX(40%);
-          transform: translateX(40%);
+  top: 14%;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
 }
 
 @media (max-width: 576px) {
   .hero-area .social-connect {
     left: -40px;
-    top: 20%;
+    top: 14%;
   }
 }
 
@@ -739,7 +756,7 @@ header .header-area .collapse-menu span:hover {
 }
 
 .section-content-area {
-  padding: 50px 10px;
+  padding: 80px 25px;
   height: 100%;
 }
 
@@ -750,16 +767,6 @@ header .header-area .collapse-menu span:hover {
 
 .section-title-area-two {
   background: radial-gradient(50% 50% at 50% 50%, #C54BFE 0%, #9300ED 100%);
-}
-
-.service-content-area {
-  padding: 150px 20px 150px 27px;
-}
-
-@media (max-width: 991px) {
-  .service-content-area {
-    padding: 50px 20px 50px 27px;
-  }
 }
 
 .service-item {
@@ -888,25 +895,6 @@ header .header-area .collapse-menu span:hover {
   .service-item .service-btn a.read-more {
     margin-top: -3px;
     font-size: 16px;
-  }
-}
-
-.about-content {
-  padding-top: 150px;
-  padding-bottom: 150px;
-}
-
-@media (max-width: 1199px) {
-  .about-content {
-    padding-top: 100px;
-    padding-bottom: 100px;
-  }
-}
-
-@media (max-width: 991px) {
-  .about-content {
-    padding-top: 50px;
-    padding-bottom: 50px;
   }
 }
 
@@ -1113,25 +1101,6 @@ header .header-area .collapse-menu span:hover {
   color: #00152B;
 }
 
-.work-content-area {
-  padding-top: 150px;
-  padding-bottom: 150px;
-}
-
-@media (max-width: 991px) {
-  .work-content-area {
-    padding-top: 100px;
-    padding-bottom: 100px;
-  }
-}
-
-@media (max-width: 767px) {
-  .work-content-area {
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-}
-
 .work-process-section h3.work-process-title {
   text-align: center;
   font-size: 50px;
@@ -1189,6 +1158,9 @@ header .header-area .collapse-menu span:hover {
           align-items: center;
   text-align: center;
   position: relative;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  z-index: 999;
 }
 
 @media (max-width: 991px) {
@@ -1230,15 +1202,41 @@ header .header-area .collapse-menu span:hover {
   height: 40px;
   font-weight: 700;
   text-align: center;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .work-process-item1 .work-icon h4 {
   font-size: 20px;
   font-weight: 600;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .work-process-item1 .work-icon svg {
   margin: 0px auto;
+  fill: #2A2B2F;
+  stroke: #2A2B2F;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.work-process-item1 .work-icon:hover {
+  background-color: #141441;
+}
+
+.work-process-item1 .work-icon:hover svg {
+  fill: #fff;
+  stroke: #fff;
+}
+
+.work-process-item1 .work-icon:hover h4 {
+  color: #FFFFFF;
+}
+
+.work-process-item1 .work-icon:hover span {
+  color: #FFFFFF;
+  background-color: #F37700;
 }
 
 .work-process-item2 {
@@ -1254,6 +1252,8 @@ header .header-area .collapse-menu span:hover {
           align-items: center;
   text-align: center;
   position: relative;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 @media (max-width: 991px) {
@@ -1295,15 +1295,41 @@ header .header-area .collapse-menu span:hover {
   height: 40px;
   font-weight: 700;
   text-align: center;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .work-process-item2 h4 {
   font-size: 20px;
   font-weight: 600;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .work-process-item2 svg {
   margin: 0px auto;
+  fill: #2A2B2F;
+  stroke: #2A2B2F;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.work-process-item2:hover {
+  background-color: #141441;
+}
+
+.work-process-item2:hover svg {
+  fill: #fff;
+  stroke: #fff;
+}
+
+.work-process-item2:hover h4 {
+  color: #FFFFFF;
+}
+
+.work-process-item2:hover span {
+  color: #FFFFFF;
+  background-color: #F37700;
 }
 
 .work-process-wrapper {
@@ -1362,6 +1388,8 @@ header .header-area .collapse-menu span:hover {
           align-items: center;
   text-align: center;
   position: relative;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .work-process-wrapper .work-process-item::before {
@@ -1397,15 +1425,41 @@ header .header-area .collapse-menu span:hover {
   height: 40px;
   font-weight: 700;
   text-align: center;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .work-process-wrapper .work-process-item h4 {
   font-size: 20px;
   font-weight: 600;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .work-process-wrapper .work-process-item svg {
   margin: 0px auto;
+  fill: #2A2B2F;
+  stroke: #2A2B2F;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.work-process-wrapper .work-process-item:hover {
+  background-color: #141441;
+}
+
+.work-process-wrapper .work-process-item:hover svg {
+  fill: #fff;
+  stroke: #fff;
+}
+
+.work-process-wrapper .work-process-item:hover h4 {
+  color: #FFFFFF;
+}
+
+.work-process-wrapper .work-process-item:hover span {
+  color: #FFFFFF;
+  background-color: #F37700;
 }
 
 .responsive-work-process-item {

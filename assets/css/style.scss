@@ -13,6 +13,26 @@ $secondary-color: #3C3950;
 .pb-150{
     padding-bottom: 150px;
 }
+//scrolll bae
+/* width */
+::-webkit-scrollbar {
+    width: 3px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #43A2AF; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #000; 
+  }
 // responsive==========================
 // xl-device=====
 @mixin xxl-down-device{
@@ -151,8 +171,6 @@ body{
 
 .hover-style{
     border: 2px solid transparent;
-    font-size: 20px;
-    font-weight: 500;
     position: relative;
     &::before{
         content: '';
@@ -377,7 +395,7 @@ header{
     align-items: center;
     -webkit-box-align: center;
     width: 100%;
-    height: 100%;
+    // height: 100%;
     background: linear-gradient(rgba(45,55,60,0.8) 100%,rgba(45,55,60,0.8) 100%), url(../images/hero-image-1.png);
     // &::before{
     //     position: absolute;
@@ -405,7 +423,7 @@ header{
    
     .hero-area-content{
         text-align: center;
-        padding: 120px 20px;
+        padding: 165px 20px;
         @include md-down-device(){
             padding: 120px 10px;
         }
@@ -455,11 +473,11 @@ header{
     .social-connect {
         position: absolute;
         left: 0;
-        top: 20%;
-        transform: translateX(40%);
+        top: 14%;
+        transform: translateX(50%);
         @include sm-down-device(){
             left: -40px;
-            top: 20%;   
+            top: 14%;   
         }
         @include sm-down-device(){
             display: none;
@@ -637,7 +655,7 @@ header{
     }
 }
 .section-content-area{
-    padding: 50px 10px;
+    padding: 80px 25px;
     height: 100%;
     &.s-color-1{
         background: #26302B;
@@ -653,12 +671,7 @@ header{
 .section-title-area-two{
     background: radial-gradient(50% 50% at 50% 50%, #C54BFE 0%, #9300ED 100%);
 }
-.service-content-area{
-    padding: 150px 20px 150px 27px;
-    @include lg-down-device(){
-        padding: 50px 20px 50px 27px;
-    }
-}
+
 // Services Items CSS
 .service-item{
     border: 2px solid #EEEEEE;
@@ -765,18 +778,7 @@ header{
 
 
 // About Us CSS
-.about-content{
-    padding-top: 150px;
-    padding-bottom: 150px;
-    @include xl-down-device(){
-        padding-top: 100px;
-        padding-bottom: 100px
-    }
-    @include lg-down-device(){
-        padding-top: 50px;
-        padding-bottom: 50px
-    }
-}
+
 .about-us-wrapper{
     h2{
         font-family: $primary-font;
@@ -941,20 +943,7 @@ header{
     }
   }
 // Work Process CSS
-.work-content-area{
-    padding-top: 150px;
-    padding-bottom: 150px;
-    @include lg-down-device(){
-        padding-top: 100px;
-        padding-bottom: 100px; 
-    }
-    @include md-down-device(){
-        padding-top: 50px;
-        padding-bottom: 50px; 
-    }
-    
 
-}
 .work-process-section{
     h3.work-process-title{
         text-align: center;
@@ -998,6 +987,8 @@ header{
     align-items: center;
     text-align: center;
     position: relative;
+    transition: 0.4s;
+    z-index: 999;
     @include lg-down-device(){
         &::before{
             border-right: unset;
@@ -1033,15 +1024,36 @@ header{
         height: 40px;
         font-weight: 700;
         text-align: center;
+        transition: 0.4s;
     }
+    
     h4{
         font-size: 20px;
         font-weight: 600;
+        transition: 0.4s;
     }
     svg{
         margin: 0px auto;
+        fill: #2A2B2F;
+        stroke: #2A2B2F;
+        transition: 0.4s;
+    }
+    &:hover{
+        background-color: #141441;
+        svg{
+            fill: #fff;
+            stroke: #fff;
+        }
+        h4{
+            color: #FFFFFF;
+        }
+        span{
+            color: #FFFFFF;
+            background-color: #F37700;
+        }
     }
     }
+    
 }
 .work-process-item2{
     border: 2px dashed #2A2B2F;
@@ -1053,6 +1065,7 @@ header{
     align-items: center;
     text-align: center;
     position: relative;
+    transition: 0.4s;
     @include lg-down-device(){
         &::before{
             border-right: unset;
@@ -1088,13 +1101,32 @@ header{
         height: 40px;
         font-weight: 700;
         text-align: center;
+        transition: 0.4s;
     }
     h4{
         font-size: 20px;
         font-weight: 600;
+        transition: 0.4s;
     }
     svg{
         margin: 0px auto;
+        fill: #2A2B2F;
+        stroke:#2A2B2F;
+        transition: 0.4s;
+    }
+    &:hover{
+        background-color: #141441;
+        svg{
+            fill: #fff;
+            stroke: #fff;
+        }
+        h4{
+            color: #FFFFFF;
+        }
+        span{
+            color: #FFFFFF;
+            background-color: #F37700;
+        }
     }
 }
 
@@ -1137,6 +1169,7 @@ header{
         align-items: center;
         text-align: center;
         position: relative;
+        transition: 0.4s;
         &::before{
             content: "";
             position: absolute;
@@ -1167,13 +1200,32 @@ header{
             height: 40px;
             font-weight: 700;
             text-align: center;
+            transition: 0.4s;
         }
         h4{
             font-size: 20px;
             font-weight: 600;
+            transition: 0.4s;
         }
         svg{
             margin: 0px auto;
+            fill: #2A2B2F;
+            stroke: #2A2B2F;
+            transition: 0.4s;
+        }
+        &:hover{
+            background-color: #141441;
+            svg{
+                fill: #fff;
+                stroke: #fff;
+            }
+            h4{
+                color: #FFFFFF;
+            }
+            span{
+                color: #FFFFFF;
+                background-color: #F37700;
+            }
         }
     }
 }

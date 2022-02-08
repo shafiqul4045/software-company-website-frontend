@@ -89,9 +89,9 @@ anime.timeline({loop: true})
     //         prevEl: ".ct-swiper-button-prev",
     //     },
     // });
-    // $('.video-frame').magnificPopup({
-    //     type: 'iframe'
-    //   });
+    $('.video-frame').magnificPopup({
+        type: 'iframe'
+      });
 
 
       
