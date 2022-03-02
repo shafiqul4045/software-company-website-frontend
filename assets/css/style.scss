@@ -20,6 +20,13 @@ $font-nunito: 'Nunito',
 sans-serif;
 
 
+.html{
+     overflow-x: hidden;
+}
+.body{
+    overflow-x: hidden;
+}
+
 .cursor {
     width: 30px;
     height: 30px;
@@ -318,7 +325,7 @@ body{
         top: 0;
         width: 0%;
         height: 2px;
-        background: #ddd;
+        background: #D0D0D0;
         transition: 0.3s;
         transition-delay: 0.9s;
     }
@@ -329,7 +336,7 @@ body{
         bottom: 0;
         width: 0%;
         height: 2px;
-        background: #26302B;
+        background: #D0D0D0;
         transition: 0.3s;
         transition-delay: 0.3s;
     }
@@ -342,7 +349,7 @@ body{
             top: 0;
             height: 0%;
             width: 2px;
-            background: #26302B;
+            background: #D0D0D0;
             transition: 0.3s;
             transition-delay: 0.6s;
         }
@@ -353,7 +360,7 @@ body{
             bottom: 0;
             height: 0%;
             width: 2px;
-            background: #26302B;
+            background: #D0D0D0;
             transition: 0.3s;
             transition-delay: 0s;
         }
@@ -727,11 +734,11 @@ body{
     height: 100%;
     z-index: 1;
     @include xl-down-device(){
-        min-height: unset;
+        // min-height: unset;
         padding: 100px 15px;
     }
     @include lg-down-device(){
-        min-height: unset;
+        // min-height: unset;
         padding: 50px 15px;
     }
     
@@ -1062,11 +1069,16 @@ body{
     .about-us-state{
         gap: 30px;
         justify-content: center;
+        
         .about-us-state-item {
             margin: 15px 10px;
             color: #9A9A9A;
             width: 50%;
             transition: 0.4s ease;
+            @include sm-down-device(){
+                flex-wrap: wrap;
+                justify-content: center;
+            }
             &:hover{
                 .about-us-state-item-icon i {
                     color: #FFFFFF;
@@ -1091,6 +1103,9 @@ body{
                 transition: 0.4s ease;
             }
             .about-us-state-item-content{
+                @include sm-down-device(){
+                    text-align: center;
+                }
                 h4{
                    a{
                     font-size: 30px;
@@ -1247,13 +1262,18 @@ body{
     svg{
         margin: 0px auto;
         fill: #2A2B2F;
-        stroke: #2A2B2F;
+       
         transition: 0.4s;
+    }
+    .stock{
+        stroke: #2A2B2F;
     }
     &:hover{
         background-color: #141441;
         svg{
             fill: #fff;
+        }
+        .stock{
             stroke: #fff;
         }
         h4{
@@ -1323,13 +1343,17 @@ body{
     svg{
         margin: 0px auto;
         fill: #2A2B2F;
-        stroke:#2A2B2F;
         transition: 0.4s;
+    }
+    .stock{
+        stroke: #2A2B2F;
     }
     &:hover{
         background-color: #141441;
         svg{
             fill: #fff;
+        }
+        .stock{
             stroke: #fff;
         }
         h4{
@@ -1422,13 +1446,17 @@ body{
         svg{
             margin: 0px auto;
             fill: #2A2B2F;
-            stroke: #2A2B2F;
             transition: 0.4s;
+        }
+        .stock{
+            stroke: #2A2B2F;
         }
         &:hover{
             background-color: #141441;
             svg{
                 fill: #fff;
+            }
+            .stock{
                 stroke: #fff;
             }
             h4{
@@ -3075,11 +3103,19 @@ body{
         position: absolute;
         right: 0;
         top: 0;
+        @include sm-down-device(){
+            display: none;
+            visibility: hidden;
+        }
     }
     .banner-btm-shadow{
         position: absolute;
         left: 0;
         bottom: 0;
+        @include sm-down-device(){
+            display: none;
+            visibility: hidden;
+        }
     }
     .banner-content{
         padding-top: 285px;
@@ -3103,10 +3139,12 @@ body{
             color: #FFFFFF;
             margin-bottom: 15px;
             @include xxl-down-device(){
-                font-size: 70px;
+                font-size: 80px;
+                line-height: 95px;
             }
             @include lg-down-device(){
-                font-size: 45px;
+                font-size: 70px;
+                line-height: 75px;
             }
             >span{
                 -webkit-text-stroke-width: 2px;
@@ -3162,6 +3200,9 @@ body{
                 
             }
         }
+        .product-content{
+            padding: 0px 20px;
+            text-align: center;
             h3{
                 a{
                     font-family: $primary-font;
@@ -3187,6 +3228,8 @@ body{
                 }
 
             }
+        }
+
         
     }
 }
@@ -3302,20 +3345,42 @@ body{
     background: #000413;
 }
 .inner-page-banner{
-    // background: #000413;
-    position: relative;
-    z-index: 1;
-    .banner-btm-shadow{
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        z-index: -1;
-    }
+    // // background: #000413;
+    // position: relative;
+    // z-index: 1;
+    
     .inner-banner-content{
         position: relative;
         z-index: 1;
         padding: 175px 0px;
         text-align: center;
+        width: 100%;
+        .banner-btm-shadow{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: -9;
+        }
+        &:before {
+            background: url(../images/frame-top.png);
+            background-repeat: no-repeat;
+            background-position: left top;
+            position: absolute;
+            content: "";
+            inset: 0;
+            // left: 0;
+            // top: 0;
+            z-index: -1;
+        }
+        &::after {
+            background: url(../images/frame-btm.png);
+            background-repeat: no-repeat;
+            position: absolute;
+            content: "";
+            inset: 0;
+            background-position: right bottom;
+            z-index: -1;
+        }
         .breadcrumb{
             margin-bottom: 10px;
             text-align: center;
@@ -3349,15 +3414,16 @@ body{
             text-align: center;
             color: #FFFFFF;
         }
-        .rotate-text{
-            position: absolute;
-            transform: rotate(-90deg);
-            right: -128%;
-            bottom: 38%;
-            font-size: 80px;
-            -webkit-text-stroke-width: 2px;
-            -webkit-text-stroke-color: rgb(85, 84, 84);
-            -webkit-text-fill-color: #00030E;
+        span{
+            &::after {
+                background: url(../images/shape/banner-shadow-btm.png);
+                background-repeat: no-repeat;
+                position: absolute;
+                content: "";
+                inset: 0;
+                background-position: left bottom;
+                z-index: -1;
+            }
         }
     }
     .inner-banner-bg{
