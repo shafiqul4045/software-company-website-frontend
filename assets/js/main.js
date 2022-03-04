@@ -1,4 +1,65 @@
 $(document).ready(function(){
+  var words = document.getElementsByClassName('word');
+  var wordArray = [];
+  var currentWord = 0;
+  
+  words[currentWord].style.opacity = 1;
+  for (var i = 0; i < words.length; i++) {
+    splitLetters(words[i]);
+  }
+  
+  function changeWord() {
+    var cw = wordArray[currentWord];
+    var nw = currentWord == words.length-1 ? wordArray[0] : wordArray[currentWord+1];
+    for (var i = 0; i < cw.length; i++) {
+      animateLetterOut(cw, i);
+    }
+    
+    for (var i = 0; i < nw.length; i++) {
+      nw[i].className = 'letter behind';
+      nw[0].parentElement.style.opacity = 1;
+      animateLetterIn(nw, i);
+    }
+    
+    currentWord = (currentWord == wordArray.length-1) ? 0 : currentWord+1;
+  }
+  
+  function animateLetterOut(cw, i) {
+    setTimeout(function() {
+      cw[i].className = 'letter out';
+    }, i*80);
+  }
+  
+  function animateLetterIn(nw, i) {
+    setTimeout(function() {
+      nw[i].className = 'letter in';
+    }, 340+(i*80));
+  }
+  
+  function splitLetters(word) {
+    var content = word.innerHTML;
+    word.innerHTML = '';
+    var letters = [];
+    for (var i = 0; i < content.length; i++) {
+      var letter = document.createElement('span');
+      letter.className = 'letter';
+      letter.innerHTML = content.charAt(i);
+      word.appendChild(letter);
+      letters.push(letter);
+    }
+    
+    wordArray.push(letters);
+  }
+  
+  changeWord();
+  setInterval(changeWord, 4000);
+  
+  
+  $('.image-open').magnificPopup({
+    type: 'image'
+  });
+  
+
     // UPDATE: I was able to get this working again... Enjoy!
       //  // Client Testimonial Slider
       //  var swiper = new Swiper(".client-testimonial", {
@@ -97,23 +158,20 @@ a.forEach(item => {
 
 
 // header2-sticky
-
-// sticky navbar============================
 window.addEventListener('scroll',function(){
   const header = document.querySelector('.header-section');
   header.classList.toggle("sticky",window.scrollY > 0);
 });
-
 // mobile-menu
-
+$('.drop-down').click(function(e){
+  e.preventDefault();
+});
 $('.mobile-menu-btn').on("click",function(){
   $('.main-menu').addClass('show-menu');
 });
-
 $('.menu-close-btn').on("click",function(){
   $('.main-menu').removeClass('show-menu');
 });
-
 // mobile-drop-down
 $('.drop-down').on('click',function(){
   // $(this).next('.mob-submenu').slideToggle();
@@ -121,9 +179,7 @@ $('.drop-down').on('click',function(){
   $(this).parent().siblings().children('ul').slideUp();
   $(this).parent().siblings().children('.active').removeClass('active');
 });
-
 // sidebar-sticky
-
 $(window).scroll(function() {
   if ($(window).scrollTop() > 300) {
     $('.scroll-btn').addClass('show');
@@ -135,26 +191,18 @@ $('.scroll-btn').click(function(e){
   e.preventDefault();
   $('html, body').animate({scrollTop:0}, '300');
 });
-
-
 // sidebar
-
 // mobile-search-area
 $('.search-btn').on("click", function(){
   $('.mobile-search').addClass('slide');
-  
 });
 $('.search-cross-btn').on("click", function(){
   $('.mobile-search').removeClass('slide');
-  
 });
-
    // Menu Toggle button sidebar
-
    var toggleIcon = document.querySelectorAll('.menu-sidebar-btn')
    var closeIcon = document.querySelectorAll('.cross-icon')
    var searchWrap = document.querySelectorAll('.menu-toggle-btn-full-shape')
-
    toggleIcon.forEach((element)=>{
        element.addEventListener('click', ()=>{
            document.querySelectorAll('.menu-toggle-btn-full-shape').forEach((el)=>{
@@ -162,7 +210,6 @@ $('.search-cross-btn').on("click", function(){
            })
        })
    })
-
    closeIcon.forEach((element)=>{
        element.addEventListener('click', ()=>{
            document.querySelectorAll('.menu-toggle-btn-full-shape').forEach((el)=>{
@@ -170,7 +217,6 @@ $('.search-cross-btn').on("click", function(){
            })
        })
    })
-
     window.onclick = function(event){
        // Menu Toggle button sidebar
        searchWrap.forEach((el)=>{
@@ -179,6 +225,7 @@ $('.search-cross-btn').on("click", function(){
          }
        })
    }
+
 
 
     $('.video-frame').magnificPopup({
